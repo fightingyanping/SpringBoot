@@ -6,20 +6,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
  
-import com.how2java.springboot.dao.CategoryDAO;
+import com.how2java.springboot.mapper.CategoryMapper;
 import com.how2java.springboot.pojo.Category;
-  
+   
 @Controller
 public class CategoryController {
-    @Autowired CategoryDAO categoryDAO;
-     
+    @Autowired CategoryMapper categoryMapper;
+      
     @RequestMapping("/listCategory")
     public String listCategory(Model m) throws Exception {
-        List<Category> cs=categoryDAO.findAll();
-         
+        List<Category> cs=categoryMapper.findAll();
+          
         m.addAttribute("cs", cs);
-         
+          
         return "listCategory";
     }
-     
+      
 }
